@@ -3,14 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class mergesort {
-    private int[] unsorted;
 
-    public mergesort(int[] nums) {
-        unsorted = nums;
-    }
-
-    public List<Integer> sortArray() {
-        if (unsorted.length != 0) return mergeSort(unsorted, 0, unsorted.length - 1);
+    public List<Integer> sortArray(int[] nums) {
+        if (nums.length != 0) return mergeSort(nums, 0, nums.length - 1);
         else return new ArrayList<>(0);
     }
 
@@ -28,7 +23,7 @@ public class mergesort {
     }
 
     private List<Integer> merge (List<Integer> a, List<Integer> b) {
-        List<Integer> rst = new ArrayList<>();
+        List<Integer> rst = new ArrayList<>(a.size() + b.size());
         int i = 0;
         int j = 0;
         while (i < a.size() && j < b.size()){
@@ -42,7 +37,7 @@ public class mergesort {
 
     public static void main(String[] args) {
         int[] sort = {1,3,5,2,4,6};
-        mergesort srt = new mergesort(sort);
-        System.out.println(srt.sortArray());
+        mergesort srt = new mergesort();
+        System.out.println(srt.sortArray(sort));
     }
 }
